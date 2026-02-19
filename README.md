@@ -12,6 +12,7 @@
 ![Patients](https://img.shields.io/badge/Patients-1000%2B-brightgreen)
 ![Synthetic](https://img.shields.io/badge/Data-100%25%20Synthetic-blueviolet)
 ![MadeWith](https://img.shields.io/badge/Made%20with-Python-yellow)
+![Developer](https://img.shields.io/badge/Developed%20By-Dr.%20Sanjay%20Agal-purple)
 
 ---
 
@@ -75,9 +76,3 @@ The `labels.csv` file contains:
   - Speckle (Ultrasound)
 
 ---
-
-## 🧪 Example Usage
-
-
-
-
