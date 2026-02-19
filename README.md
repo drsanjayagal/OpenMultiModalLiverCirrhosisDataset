@@ -1,45 +1,83 @@
-# Open Multi-Modal Liver Cirrhosis Dataset
+# OpenMultiModalLiverCirrhosisDataset
 
-A fully synthetic, open-access dataset of multi-modal medical images (MRI, CT, Ultrasound) for liver cirrhosis research, designed for machine learning and Vision Transformer applications.
+🧠🩺 **Synthetic Multi-Modal Liver Cirrhosis Dataset**
 
-## Overview
+*For Machine Learning Research & Medical Imaging Applications*
 
-This dataset contains synthetic images from 1000 unique patients, each with three modalities: MRI, CT, and Ultrasound. All images are generated using parametric models that simulate realistic anatomy and pathology variations. The dataset includes ground truth labels for liver fibrosis stage (METAVIR F0–F4) and a binary classification (cirrhosis vs. non-cirrhosis). Data is split into training (70%), validation (15%), and test (15%) sets.
+**Designed & Developed by Dr. Sanjay Agal**
 
-**Key Features:**
-- **Multi-Modal:** MRI (T2-weighted), CT, and Ultrasound for each patient.
-- **Realistic Synthetic Generation:** Patient-specific anatomy (liver shape, position, texture) and pathology-dependent features (nodules, echogenicity, density).
-- **Clinical Labels:** Fibrosis stage (F0–F4) and binary cirrhosis indicator.
-- **Structured Metadata:** Age, sex, and split assignment per patient.
-- **Reproducible:** Fixed random seed ensures exact replication.
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![License](https://img.shields.io/badge/License-CC%20BY%204.0-green)
+![Images](https://img.shields.io/badge/Modalities-MRI%20%7C%20CT%20%7C%20Ultrasound-orange)
+![Patients](https://img.shields.io/badge/Patients-1000%2B-brightgreen)
+![Synthetic](https://img.shields.io/badge/Data-100%25%20Synthetic-blueviolet)
+![MadeWith](https://img.shields.io/badge/Made%20with-Python-yellow)
 
-## Dataset Structure
+---
+
+## ✨ Overview
+
+This repository provides a **fully synthetic, open-access, multi-modal medical imaging dataset** designed to support **machine learning, deep learning, and Vision Transformer (ViT)** research for **early and advanced liver cirrhosis detection**.
+
+The dataset simulates **realistic clinical imaging scenarios** using parametric and probabilistic models, enabling safe, reproducible, and large-scale experimentation **without any real patient data**.
+
+It is ideal for:
+
+- 🧠 Vision Transformer (ViT) benchmarking  
+- 🔗 Multi-modal fusion research  
+- 📊 Medical image classification  
+- 🔍 Explainable AI (XAI)  
+- 🎓 Academic teaching and demonstrations  
+
+---
+
+## 🧬 Dataset Summary
+
+- **Patients:** 1,000+ synthetic subjects  
+- **Modalities:** MRI, CT, Ultrasound  
+- **Labels:**
+  - METAVIR Fibrosis Stage (F0–F4)
+  - Binary Cirrhosis Label (Positive / Negative)
+- **Splits:** Train (70%) · Validation (15%) · Test (15%)
+- **Format:** NumPy arrays (`.npy`, float32, [0–1])
+- **Reproducibility:** Fixed random seed  
+
+---
+
+## 📁 Dataset Structure
 
 
-Each image is saved as a 2D NumPy array (`.npy`) with float32 values in the range [0, 1].
+---
 
-## Metadata
+## 📋 Metadata Description
 
-The main `labels.csv` contains the following columns:
+The `labels.csv` file contains:
 
-| Column           | Description                                                                 |
-|------------------|-----------------------------------------------------------------------------|
-| `patient_id`     | Unique patient identifier (e.g., `PAT_0001`)                                |
-| `fibrosis_stage` | METAVIR score: F0, F1, F2, F3, F4                                           |
-| `binary_label`   | `positive` (cirrhosis: F3–F4) or `negative` (no/mild fibrosis: F0–F2)      |
-| `split`          | Dataset split: `train`, `val`, or `test`                                    |
-| `age`            | Patient age (integer, 30–85)                                                |
-| `sex`            | Patient sex (`M` or `F`)                                                    |
+| Column | Description |
+|------|-------------|
+| `patient_id` | Unique synthetic patient ID |
+| `fibrosis_stage` | METAVIR stage (F0–F4) |
+| `binary_label` | positive (F3–F4) / negative (F0–F2) |
+| `split` | train / val / test |
+| `age` | Patient age (30–85) |
+| `sex` | M / F |
 
-## Generation Process
+---
 
-1. **Anatomy Model:** For each patient, a unique elliptical liver region is defined with random position, size, and rotation. These parameters are derived from a deterministic seed based on `patient_id` to ensure cross-modality consistency.
-2. **Modality-Specific Synthesis:**
-   - **MRI:** Background noise with elliptical liver region. Intensity increases with fibrosis stage; bright nodules added for F2–F4.
-   - **CT:** Simulated Hounsfield units normalized to [0,1]. Liver density increases with stage; high-density spots appear in F3–F4.
-   - **Ultrasound:** Speckle noise modelled by Gamma distribution. Echogenicity and texture coarseness increase with stage; bright reflections for advanced fibrosis.
-3. **Label Assignment:** Fibrosis stages are sampled from a realistic prevalence distribution. Binary label derived from stage. Age sampled from N(60,10), sex balanced.
-4. **Data Splitting:** Patients are deterministically assigned to train/val/test based on index to ensure reproducibility without shuffling.
-``python
-import numpy as np
-image = np.load("OpenMultiModalLiverCirrhosisDataset/images/PAT_0001_MRI.npy")
+## ⚙️ Synthetic Generation Highlights
+
+- Patient-specific liver anatomy (shape, size, rotation)
+- Modality-consistent geometry across MRI, CT, and Ultrasound
+- Progressive texture and intensity changes with fibrosis stage
+- Realistic noise models:
+  - Gaussian (MRI)
+  - Density-based (CT)
+  - Speckle (Ultrasound)
+
+---
+
+## 🧪 Example Usage
+
+
+
+
